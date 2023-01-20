@@ -25,7 +25,6 @@ function Main(props) {
               maker={artworks[key].principalOrFirstMaker}
               title={artworks[key].title}
               key={artworks[key].id}
-              selectArtwork={props.selectArtwork}
               displayLinkButton={true}
             />
           );

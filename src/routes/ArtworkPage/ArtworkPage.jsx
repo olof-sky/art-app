@@ -8,7 +8,7 @@ import ArtworkDescription from "../../components/Artwork/ArtworkDescription/Artw
 const key = process.env.REACT_APP_MASTER_KEY;
 const url = process.env.REACT_APP_RIJKS_URL;
 
-function ArtworkPage(props) {
+function ArtworkPage() {
   const [artwork, setArtwork] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
