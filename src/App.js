@@ -1,56 +1,120 @@
 import React from "react";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
+import { debounce } from "./helpers/helpers";
+import { getArtworksHelper } from "./api/getArtworks";
 
-import ArtworkPage from "./components/ArtworkPage/ArtworkPage";
+import ArtworkPage from "./routes/ArtworkPage/ArtworkPage";
 import Header from "./components/Header/Header";
-import Main from "./components/Main/Main";
+import Main from "./routes/Main/Main";
 
 import "./index.scss";
-
-const key = process.env.REACT_APP_MASTER_KEY;
-const url = process.env.REACT_APP_RIJKS_URL;
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.getMoreArtworks = this.getMoreArtworks.bind(this);
+    this.getSearchResult = this.getSearchResult.bind(this);
     this.getArtworks = this.getArtworks.bind(this);
+    this.setArtworks = this.setArtworks.bind(this);
+    this.onScroll = this.onScroll.bind(this);
     this.state = {
+      searchTerm: "",
       page: 1,
-      artworksPerPage: 10,
-      artworks: null,
+      artworksPerPage: 3,
+      artworks: {},
       type: ["drawing", "painting"],
+      loading: false,
     };
   }
 
   componentDidMount() {
-    this.getArtworks().then((response) => {
-      this.setState({ artworks: response.artObjects });
-    });
+    this.getArtworks();
+  }
+
+  async getMoreArtworks() {
+    this.setState(
+      {
+        page: (this.state.page += 1),
+      },
+      async () => await this.getArtworks()
+    );
   }
 
   async getArtworks() {
-    try {
-      const response = await fetch(
-        `${url}/en/collection?key=${key}&type=${this.state.type[1]}&p=${this.state.page}&ps=${this.state.artworksPerPage}`
+    await getArtworksHelper(
+      this.state.type[1],
+      this.state.page,
+      this.state.artworksPerPage,
+      this.state.searchTerm
+    ).then((response) => {
+      this.setArtworks(response);
+    });
+  }
+
+  setArtworks(response) {
+    let artworks = this.state.artworks;
+    response.artObjects.forEach((artwork) => {
+      artworks[artwork.id] = artwork;
+    });
+    console.log("Artworks::", Object.keys(artworks).length, artworks);
+    this.setState({
+      artworks: artworks,
+      loading: false,
+    });
+  }
+
+  /*========= Get random results =========/*
+
+    data.count == 3396 ex.  
+    ps (amount of pics per page)
+    p (page)
+
+    pageMax = Math.floor(data.count / ps);
+  */
+
+  onScroll() {
+    const mainWindow = document.querySelector("body");
+    //If bottom
+    if (mainWindow.getBoundingClientRect().bottom < window.innerHeight) {
+      this.setState(
+        {
+          page: (this.state.page += 1),
+          loading: true,
+        },
+        async () => {
+          await this.getArtworks();
+        }
       );
-      if (!response.ok) {
-        throw new Error();
-      } else {
-        const data = await response.json();
-        return data;
-      }
-    } catch (error) {
-      throw new Error();
     }
+  }
+
+  getSearchResult(e, artist) {
+    e.preventDefault();
+    this.setState(
+      {
+        page: 1,
+        artworks: [],
+        searchTerm: artist,
+      },
+      async () => {
+        await this.getArtworks();
+      }
+    );
   }
 
   render() {
     return (
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Layout onSearch={this.getSearchResult} />}>
           <Route
             index
-            element={<Main artworks={this.state.artworks} />}
+            element={
+              <Main
+                loading={this.state.loading}
+                onScroll={debounce(this.onScroll, 300)}
+                artworks={this.state.artworks}
+              />
+            }
           ></Route>
           <Route path="/artwork/:id" element={<ArtworkPage />} />
           <Route path="*" element={<NoMatch />} />
@@ -60,10 +124,10 @@ class App extends React.Component {
   }
 }
 
-function Layout() {
+function Layout(props) {
   return (
-    <div>
-      <Header />
+    <div className="content">
+      <Header onSearch={props.onSearch} />
       <Outlet />
     </div>
   );
