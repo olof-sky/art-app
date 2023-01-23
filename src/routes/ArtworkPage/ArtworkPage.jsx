@@ -1,9 +1,9 @@
 import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import BtnRoundLink from "../../components/Buttons/BtnRoundLink";
-import Artwork from "../../components/Artwork/Artwork";
-import ArtworkDescription from "../../components/Artwork/ArtworkDescription/ArtworkDescription";
+import BtnRoundLink from "../../components/buttons/BtnRoundLink";
+import Artwork from "../../components/artwork/Artwork";
+import ArtworkDescription from "../../components/artwork/artworkDescription/ArtworkDescription";
 
 const key = process.env.REACT_APP_MASTER_KEY;
 const url = process.env.REACT_APP_RIJKS_URL;

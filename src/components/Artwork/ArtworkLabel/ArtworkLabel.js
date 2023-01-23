@@ -1,4 +1,4 @@
-import BtnRoundLink from "../../Buttons/BtnRoundLink";
+import BtnRoundLink from "../../buttons/BtnRoundLink";
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 function Label(props) {

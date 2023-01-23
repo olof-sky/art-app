@@ -3,9 +3,9 @@ import { Routes, Route, Outlet, Link } from "react-router-dom";
 import { debounce } from "./helpers/helpers";
 import { getArtworksHelper } from "./api/getArtworks";
 
-import ArtworkPage from "./routes/ArtworkPage/ArtworkPage";
-import Header from "./components/Header/Header";
-import Main from "./routes/Main/Main";
+import ArtworkPage from "./routes/artworkPage/ArtworkPage";
+import Header from "./components/header/Header";
+import Main from "./routes/main/Main";
 
 import "./index.scss";
 

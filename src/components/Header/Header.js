@@ -1,5 +1,5 @@
 import React from "react";
-import SearchBox from "./SearchBox/SearchBox";
+import SearchBox from "./searchBox/SearchBox";
 
 function Header(props) {
   return (

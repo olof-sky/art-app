@@ -1,6 +1,6 @@
 import { useEventListener } from "../../hooks/hooks.js";
-import { Loading } from "../../components/Loading/Loading.js";
-import Artwork from "../../components/Artwork/Artwork";
+import { Loading } from "../../components/loading/Loading.js";
+import Artwork from "../../components/artwork/Artwork";
 
 function Main(props) {
   const handler = () => {

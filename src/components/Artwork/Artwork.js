@@ -1,4 +1,4 @@
-import ArtworkLabel from "./ArtworkLabel/ArtworkLabel";
+import ArtworkLabel from "./artworkLabel/ArtworkLabel";
 
 function Artwork(props) {
   return (
