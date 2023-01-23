@@ -1,7 +1,7 @@
 function Description(props) {
   const artwork = props.artwork;
   return (
-    <section className="artwork_description">
+    <span className="artwork_description">
       <ul>
         <li>Dating: {artwork.dating.presentingDate || "No dating listed"}</li>
         <li>
@@ -15,7 +15,7 @@ function Description(props) {
       </ul>
       <p>Description:</p>
       <p>{artwork.plaqueDescriptionEnglish || "No description available"}</p>
-    </section>
+    </span>
   );
 }
 
