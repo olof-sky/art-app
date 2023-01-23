@@ -7,6 +7,7 @@ import ArtworkDescription from "../../components/Artwork/ArtworkDescription/Artw
 
 const key = process.env.REACT_APP_MASTER_KEY;
 const url = process.env.REACT_APP_RIJKS_URL;
+const baseUrl = process.env.REACT_APP_BASE_URL;
 
 function ArtworkPage() {
   const [artwork, setArtwork] = useState({});
@@ -53,7 +54,7 @@ function ArtworkPage() {
           title={artwork.title}
         />
         <ArtworkDescription artwork={artwork} />
-        <BtnRoundLink link={process.env.REACT_APP_BASE_URL} goBack={true} />
+        <BtnRoundLink link={baseUrl} goBack={true} />
       </main>
     );
   }
