@@ -1,6 +1,8 @@
 import BtnRoundLink from "../../Buttons/BtnRoundLink";
+const baseUrl = process.env.REACT_APP_BASE_URL;
+
 function Label(props) {
-  const link = `/artwork/${props.id}`;
+  const link = `${baseUrl}/artwork/${props.id}`;
   return (
     <div className="artwork_label">
       <h1 alt="artwork_artist">{props.maker}</h1>

@@ -53,7 +53,7 @@ function ArtworkPage() {
           title={artwork.title}
         />
         <ArtworkDescription artwork={artwork} />
-        <BtnRoundLink link="/" goBack={true} />
+        <BtnRoundLink link={process.env.REACT_APP_BASE_URL} goBack={true} />
       </main>
     );
   }

@@ -9,6 +9,8 @@ import Main from "./routes/Main/Main";
 
 import "./index.scss";
 
+const baseUrl = process.env.REACT_APP_BASE_URL;
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -105,8 +107,12 @@ class App extends React.Component {
   render() {
     return (
       <Routes>
-        <Route path="/" element={<Layout onSearch={this.getSearchResult} />}>
+        <Route
+          path={baseUrl}
+          element={<Layout onSearch={this.getSearchResult} />}
+        >
           <Route
+            path={baseUrl}
             index
             element={
               <Main
@@ -116,7 +122,7 @@ class App extends React.Component {
               />
             }
           ></Route>
-          <Route path="/artwork/:id" element={<ArtworkPage />} />
+          <Route path={baseUrl + "/artwork/:id"} element={<ArtworkPage />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
@@ -138,7 +144,7 @@ function NoMatch() {
     <div>
       <h2>Nothing to see here!</h2>
       <p>
-        <Link to="/">Go to the home page</Link>
+        <Link to={process.env.REACT_APP_BASE_URL}>Go to the home page</Link>
       </p>
     </div>
   );

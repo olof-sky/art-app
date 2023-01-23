@@ -2,6 +2,12 @@ import { React, useState } from "react";
 import { useEventListener } from "../../../hooks/hooks";
 import { debounce } from "../../../helpers/helpers";
 
+/*
+TODO: If artist option selected =>
+On input, show artist where query matches input
+On artist select, input = selected artist
+*/
+
 function SearchBox(props) {
   const searchInputField = document.querySelector(".search-input");
   const artists = [
