@@ -6,11 +6,11 @@ Application using API from https://www.rijksmuseum.nl to fetch art objects and s
 
 ### TODO
 
-- [] Make search click re-route to index and reset list of suggestions.
-- [] Removing search text completely resets search query.
-- [] Add login with google
-- [] Add favorites, artworks
-- [] Add follow artist
+- [ ] Make search click re-route to index and reset list of suggestions.
+- [ ] Removing search text completely resets search query.
+- [ ] Add login with google
+- [ ] Add favorites, artworks
+- [ ] Add follow artist
 
 ### Data flow
 
