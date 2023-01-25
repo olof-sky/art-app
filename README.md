@@ -6,16 +6,10 @@ React application using API from https://www.rijksmuseum.nl to fetch art objects
 
 ### Setup
 
-- Install
+- Commands
 
   - npm install
-
-- Run
-
   - npm run
-
-- Build
-
   - npm build
 
 - Deploy
