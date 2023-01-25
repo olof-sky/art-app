@@ -2,7 +2,25 @@
 
 ### Description
 
-Application using API from https://www.rijksmuseum.nl to fetch art objects and showcase information about artists and their work.
+React application using API from https://www.rijksmuseum.nl to fetch art objects and showcase information about artists and their work.
+
+### Setup
+
+- Install
+
+  - npm install
+
+- Run
+
+  - npm run
+
+- Build
+
+  - npm build
+
+- Deploy
+
+  - Tutorial to setup gh pages: https://github.com/gitname/react-gh-pages
 
 ### TODO
 
