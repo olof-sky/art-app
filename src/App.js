@@ -36,13 +36,16 @@ class App extends React.Component {
   async getMoreArtworks() {
     this.setState(
       {
-        page: (this.state.page += 1),
+        page: this.state.page + 1,
       },
       async () => await this.getArtworks()
     );
   }
 
   async getArtworks() {
+    this.setState({
+      loading: true,
+    });
     await getArtworksHelper(
       this.state.type[1],
       this.state.page,
@@ -80,8 +83,7 @@ class App extends React.Component {
     if (mainWindow.getBoundingClientRect().bottom < window.innerHeight) {
       this.setState(
         {
-          page: (this.state.page += 1),
-          loading: true,
+          page: this.state.page + 1,
         },
         async () => {
           await this.getArtworks();

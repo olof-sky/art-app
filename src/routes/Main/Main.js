@@ -29,6 +29,7 @@ function Main(props) {
             />
           );
         })}
+        {artworks.length < 1 && !props.loading ? <h2>No artworks</h2> : null}
         {props.loading ? <Loading /> : null}
       </main>
     );
