@@ -3,9 +3,9 @@ import { Routes, Route, Outlet, Link } from "react-router-dom";
 import { debounce } from "./helpers/helpers";
 import { getArtworksHelper } from "./api/getArtworks";
 
-import ArtworkPage from "./routes/artworkPage/ArtworkPage";
+import ArtworkPage from "./pages/artworkPage/ArtworkPage";
 import Header from "./components/header/Header";
-import Main from "./routes/main/Main";
+import Main from "./pages/main/Main";
 
 import "./index.scss";
 
@@ -31,6 +31,20 @@ class App extends React.Component {
 
   componentDidMount() {
     this.getArtworks();
+  }
+
+  getSearchResult(e, artist) {
+    e.preventDefault();
+    this.setState(
+      {
+        page: 1,
+        artworks: [],
+        searchTerm: artist,
+      },
+      async () => {
+        await this.getArtworks();
+      }
+    );
   }
 
   async getMoreArtworks() {
@@ -81,20 +95,6 @@ class App extends React.Component {
         }
       );
     }
-  }
-
-  getSearchResult(e, artist) {
-    e.preventDefault();
-    this.setState(
-      {
-        page: 1,
-        artworks: [],
-        searchTerm: artist,
-      },
-      async () => {
-        await this.getArtworks();
-      }
-    );
   }
 
   render() {
