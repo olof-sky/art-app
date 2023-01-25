@@ -68,15 +68,6 @@ class App extends React.Component {
     });
   }
 
-  /*========= Get random results =========/*
-
-    data.count == 3396 ex.  
-    ps (amount of pics per page)
-    p (page)
-
-    pageMax = Math.floor(data.count / ps);
-  */
-
   onScroll() {
     const mainWindow = document.querySelector("body");
     //If bottom

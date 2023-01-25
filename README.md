@@ -13,6 +13,20 @@ Application using API from https://www.rijksmuseum.nl to fetch art objects and s
 - [ ] Add favorites, artworks
 - [ ] Add follow artist
 
+- [ ] Add random results, suggestion....
+
+```
+  /*========= Get random results =========/*
+
+    data.count == 3396 ex.
+    ps (amount of pics per page)
+    p (page)
+
+    pageMax = Math.floor(data.count / ps);
+
+    p = random(pageMax)
+```
+
 ### Data flow
 
 - App fetches artworks data and holds it in state => Data is displayed in Main route.
