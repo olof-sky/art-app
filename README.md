@@ -9,6 +9,8 @@ Application using API from https://www.rijksmuseum.nl to fetch art objects and s
 - [x] Make search click re-route to index and reset list of suggestions.
 - [x] If search on artist doesnt have artworks, show error text.
 - [x] Removing search text completely resets search query.
+- [ ] Work on styling
+- [ ] Add error page
 - [ ] Add login with google
 - [ ] Add favorites, artworks
 - [ ] Add follow artist
