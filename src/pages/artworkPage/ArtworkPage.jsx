@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 
 import BtnRoundLink from "../../components/buttons/BtnRoundLink";
 import Artwork from "../../components/artwork/Artwork";
-import ArtworkDescription from "../../components/artwork/artworkDescription/ArtworkDescription";
-import ArtworkWikiLinks from "../../components/artwork/artworkWikiLinks/ArtworkWikiLinks";
+import ArtworkDescription from "../../components/artworkDescription/ArtworkDescription";
+import ArtworkWikiLinks from "../../components/artworkWikiLinks/ArtworkWikiLinks";
 
 const key = process.env.REACT_APP_MASTER_KEY;
 const url = process.env.REACT_APP_RIJKS_URL;
