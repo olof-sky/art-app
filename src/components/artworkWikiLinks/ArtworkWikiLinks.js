@@ -6,6 +6,7 @@ function ArtworkWikiLinks(props) {
       <a href={artist.url}>More on artist: {artist.name}</a>
       <br></br>
       <a href={physicalMedium.url}>More on technique: {physicalMedium.name}</a>
+      <br></br>
     </span>
   );
 }
