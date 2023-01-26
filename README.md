@@ -4,16 +4,20 @@
 
 React application using API from https://www.rijksmuseum.nl to fetch art objects and showcase information about artists and their work.
 
+### DEMO
+
+Live DEMO at [Github pages](https://olof-sky.github.io/art-app/)
+
 ### Setup
 
 - Commands
 
   - npm install
-  - npm run
-  - npm build
+  - npm start
+  - npm run build
 
 - Deploy
-
+  - npm run deploy
   - Tutorial to setup gh pages: https://github.com/gitname/react-gh-pages
 
 ### TODO
@@ -21,6 +25,7 @@ React application using API from https://www.rijksmuseum.nl to fetch art objects
 - [x] Make search click re-route to index and reset list of suggestions.
 - [x] If search on artist doesnt have artworks, show error text.
 - [x] Removing search text completely resets search query.
+- [x] Fix text color on artwork label
 - [ ] Work on styling
 - [ ] Add error page
 - [ ] Add login with google

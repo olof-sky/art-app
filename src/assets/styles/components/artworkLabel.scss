@@ -1,0 +1,22 @@
+.artworks_container {
+  .artwork_label {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+    bottom: 0;
+    padding: 29px 41px 39px 41px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.24);
+    width: 100%;
+  }
+}
+
+.artwork_container {
+  .artwork_label {
+    display: flex;
+    z-index: 1;
+    bottom: 0;
+    padding: 29px 41px 39px 41px;
+  }
+}

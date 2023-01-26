@@ -7,8 +7,6 @@ import ArtworkPage from "./pages/artworkPage/ArtworkPage";
 import Header from "./components/header/Header";
 import Main from "./pages/main/Main";
 
-import "./index.scss";
-
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 class App extends React.Component {
@@ -83,9 +81,9 @@ class App extends React.Component {
   }
 
   onScroll() {
-    const mainWindow = document.querySelector("body");
+    const mainWindow = document.querySelector("#root");
     //If bottom
-    if (mainWindow.getBoundingClientRect().bottom < window.innerHeight) {
+    if (mainWindow.getBoundingClientRect().bottom <= window.innerHeight) {
       this.setState(
         {
           page: this.state.page + 1,

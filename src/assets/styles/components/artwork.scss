@@ -1,0 +1,17 @@
+.artworks_container {
+  .artwork_image_and_label {
+    position: relative;
+
+    .artwork_image {
+      height: 100vh;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.artwork_container {
+  .artwork_image {
+    width: 100%;
+  }
+}
