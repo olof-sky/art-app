@@ -98,6 +98,7 @@ function ArtworkPage() {
           imgSrc={artwork.webImage.url}
           maker={artwork.principalOrFirstMaker}
           title={artwork.title}
+          labelColor={artwork.colors[0].hex}
         />
         <ArtworkWikiLinks
           artist={artistWiki}
