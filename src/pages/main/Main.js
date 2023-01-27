@@ -21,7 +21,7 @@ function Main(props) {
         {Object.keys(artworks).map((key) => {
           return (
             <Artwork
-              imgSrc={artworks[key].webImage.url}
+              imgSrc={artworks[key].webImage.url || ""}
               id={artworks[key].objectNumber}
               maker={artworks[key].principalOrFirstMaker}
               title={artworks[key].title}
