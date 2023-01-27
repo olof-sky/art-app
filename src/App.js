@@ -82,7 +82,7 @@ class App extends React.Component {
 
   onScroll() {
     const mainWindow = document.querySelector("#root");
-    //If bottom
+    //If scrolled bottom
     if (mainWindow.getBoundingClientRect().bottom <= window.innerHeight) {
       this.setState(
         {
