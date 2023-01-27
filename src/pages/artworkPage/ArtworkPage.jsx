@@ -6,6 +6,7 @@ import Artwork from "../../components/artwork/Artwork";
 import ArtworkDescription from "../../components/artworkDescription/ArtworkDescription";
 import ArtworkWikiLinks from "../../components/artworkWikiLinks/ArtworkWikiLinks";
 import "../../assets/styles/components/artworkPage.scss";
+import { Loading } from "../../components/loading/Loading";
 
 const key = process.env.REACT_APP_MASTER_KEY;
 const url = process.env.REACT_APP_RIJKS_URL;
@@ -84,7 +85,7 @@ function ArtworkPage() {
     return <div>Page couldn't load</div>;
   }
   if (loading) {
-    return <div>Loading</div>;
+    return <Loading />;
   } else {
     const artistUrl = `http://en.wikipedia.org/?curid=${artistId}`;
     const physicalMediumUrl = `http://en.wikipedia.org/?curid=${physicalMediumId}`;
