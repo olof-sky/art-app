@@ -25,8 +25,8 @@ function ArtworkPage() {
   }, []);
 
   function setWikipediaPageId(query, type) {
-    var wikiUrl = "https://en.wikipedia.org/w/api.php";
-    var params = {
+    let wikiUrl = "https://en.wikipedia.org/w/api.php";
+    let params = {
       action: "query",
       list: "search",
       srsearch: query,
