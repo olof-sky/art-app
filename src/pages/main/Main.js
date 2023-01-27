@@ -1,6 +1,7 @@
 import { useEventListener } from "../../hooks/hooks.js";
 import { Loading } from "../../components/loading/Loading.js";
 import Artwork from "../../components/artwork/Artwork";
+import "../../assets/styles/components/main.scss";
 
 function Main(props) {
   const handler = () => {

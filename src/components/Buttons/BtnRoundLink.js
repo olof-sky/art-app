@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import arrowIcon from "../../assets/icons/chevron-right.png";
+import "../../assets/styles/components/buttonRoundLink.scss";
 
 function BtnRoundLink(props) {
   return (

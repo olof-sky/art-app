@@ -5,6 +5,7 @@ import BtnRoundLink from "../../components/buttons/BtnRoundLink";
 import Artwork from "../../components/artwork/Artwork";
 import ArtworkDescription from "../../components/artworkDescription/ArtworkDescription";
 import ArtworkWikiLinks from "../../components/artworkWikiLinks/ArtworkWikiLinks";
+import "../../assets/styles/components/artworkPage.scss";
 
 const key = process.env.REACT_APP_MASTER_KEY;
 const url = process.env.REACT_APP_RIJKS_URL;
@@ -100,12 +101,14 @@ function ArtworkPage() {
           title={artwork.title}
           labelColor={artwork.colors[0].hex}
         />
-        <ArtworkWikiLinks
-          artist={artistWiki}
-          physicalMedium={physicalMediumWiki}
-        />
-        <ArtworkDescription artwork={artwork} />
-        <BtnRoundLink link={baseUrl} goBack={true} />
+        <div className="artwork_info_container">
+          <ArtworkDescription artwork={artwork} />
+          <ArtworkWikiLinks
+            artist={artistWiki}
+            physicalMedium={physicalMediumWiki}
+          />
+          <BtnRoundLink link={baseUrl} goBack={true} />
+        </div>
       </main>
     );
   }

@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useEventListener } from "../../../hooks/hooks";
 import { debounce } from "../../../helpers/helpers";
 import { artistsList } from "../../../data/artists";
+import "../../../assets/styles/components/searchBox.scss";
 
 /*
 TODO: If artist option selected =>
@@ -12,7 +13,7 @@ On artist select, input = selected artist
 
 function SearchBox(props) {
   const artists = [...artistsList];
-  const searchInputField = document.querySelector(".search-input");
+  const searchInputField = document.querySelector(".search_input");
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
   const [artist, setArtist] = useState("");
@@ -51,16 +52,25 @@ function SearchBox(props) {
   }
 
   return (
-    <form onSubmit={(e) => search(e, artist)}>
-      <input className="search-input" type="text" placeholder="Search" />
+    <form className="search_form" onSubmit={(e) => search(e, artist)}>
+      <input className="search_input" type="text" />
       <button type="submit">Search</button>
-      <h4>{artist}</h4>
-      <ul>
+      <ul className="suggestions">
         {suggestions.map((suggestion, index) => {
           return query ? (
-            <li key={index} onClick={() => setActiveArtist(suggestion)}>
-              {suggestion}
-            </li>
+            suggestion == artist ? (
+              <li
+                className="active_artist"
+                key={index}
+                onClick={() => setActiveArtist(suggestion)}
+              >
+                {suggestion}
+              </li>
+            ) : (
+              <li key={index} onClick={() => setActiveArtist(suggestion)}>
+                {suggestion}
+              </li>
+            )
           ) : null;
         })}
       </ul>

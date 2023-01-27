@@ -1,12 +1,22 @@
+import "../../assets/styles/components/artworkWikiLinks.scss";
+
 function ArtworkWikiLinks(props) {
   const artist = props.artist;
   const physicalMedium = props.physicalMedium;
   return (
     <span className="artwork_wiki_links">
-      <a href={artist.url}>More on artist: {artist.name}</a>
-      <br></br>
-      <a href={physicalMedium.url}>More on technique: {physicalMedium.name}</a>
-      <br></br>
+      <span>
+        <h2>More on artist:</h2>
+        <a href={artist.url}>
+          <p>{artist.name}</p>
+        </a>
+      </span>
+      <span>
+        <h2>More on technique:</h2>{" "}
+        <a href={physicalMedium.url}>
+          <p>{physicalMedium.name}</p>
+        </a>
+      </span>
     </span>
   );
 }

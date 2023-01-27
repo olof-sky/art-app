@@ -1,6 +1,4 @@
 import ArtworkLabel from "./artworkLabel/ArtworkLabel";
-import "../../assets/styles/components/artwork.scss";
-
 function Artwork(props) {
   return (
     <span className="artwork_image_and_label">

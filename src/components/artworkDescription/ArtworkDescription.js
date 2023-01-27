@@ -1,9 +1,11 @@
+import "../../assets/styles/components/artworkDescription.scss";
+
 function Description(props) {
   const artwork = props.artwork;
   return (
     <span className="artwork_description">
       <ul>
-        <li>Dating: {artwork.dating.presentingDate || "No dating listed"}</li>
+        <li>Dating:{artwork.dating.presentingDate || "No dating listed"}</li>
         <li>
           Physical medium:{" "}
           {artwork.physicalMedium || "No physical medium listed"}
