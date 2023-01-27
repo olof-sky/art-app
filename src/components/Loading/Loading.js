@@ -1,3 +1,5 @@
+import "../../assets/styles/animations/loading.scss";
+
 export const Loading = () => {
-  return <div>Loading</div>;
+  return <div className="loading"></div>;
 };
