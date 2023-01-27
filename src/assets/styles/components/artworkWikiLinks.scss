@@ -1,0 +1,15 @@
+.artwork_wiki_links {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  span {
+    width: fit-content;
+    a {
+      display: block;
+      width: fit-content;
+      p {
+        width: fit-content;
+      }
+    }
+  }
+}

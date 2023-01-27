@@ -11,10 +11,16 @@
   margin: 0;
 }
 
+a {
+  color: #fff;
+  text-decoration: underline;
+}
+
 html,
 body {
   height: 100%;
   font: 14px "Encode Sans Condensed", sans-serif, "Century Gothic", Futura;
+  color: white;
 }
 
 body {
@@ -48,7 +54,16 @@ h6 {
   overflow-wrap: break-word;
 }
 
+li {
+  font-size: 18px;
+}
+
+p {
+  font-size: 18px;
+}
+
 h1,
+h2,
 h3 {
   font-family: "Italiana";
   font-weight: 500;

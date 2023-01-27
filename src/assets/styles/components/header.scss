@@ -1,0 +1,31 @@
+header {
+  display: flex;
+  align-items: center;
+  background-color: black;
+  height: 64px;
+  padding: 0 16px 0 56px;
+  .logo {
+    font-family: "annabel";
+    color: white;
+    width: fit-content;
+  }
+  button {
+    background: none;
+  }
+  button:hover {
+    cursor: pointer;
+    img {
+      opacity: 0.7;
+    }
+  }
+  .search_container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+  }
+  img {
+    width: 40px;
+  }
+}

@@ -1,0 +1,17 @@
+.artwork_container {
+  background-color: black;
+  color: white;
+
+  .artwork_image {
+    width: 100%;
+  }
+  .artwork_info_container {
+    padding: 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    li {
+      padding-right: 100px;
+    }
+  }
+}
