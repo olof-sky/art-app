@@ -23,6 +23,7 @@ function SearchBox(props) {
     props.onSearch(e, artist);
     setSuggestions([]);
     navigate(process.env.REACT_APP_BASE_URL);
+    setQuery("");
   };
 
   const handler = () => {
@@ -55,10 +56,10 @@ function SearchBox(props) {
     <form className="search_form" onSubmit={(e) => search(e, artist)}>
       <input className="search_input" type="text" />
       <button type="submit">Search</button>
-      <ul className="suggestions">
-        {suggestions.map((suggestion, index) => {
-          return query ? (
-            suggestion == artist ? (
+      {query ? (
+        <ul className="suggestions">
+          {suggestions.map((suggestion, index) => {
+            return suggestion == artist ? (
               <li
                 className="active_artist"
                 key={index}
@@ -70,10 +71,10 @@ function SearchBox(props) {
               <li key={index} onClick={() => setActiveArtist(suggestion)}>
                 {suggestion}
               </li>
-            )
-          ) : null;
-        })}
-      </ul>
+            );
+          })}
+        </ul>
+      ) : null}
     </form>
   );
 }

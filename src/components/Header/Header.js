@@ -2,6 +2,8 @@ import React from "react";
 import SearchBox from "./searchBox/SearchBox";
 import searchIcon from "../../assets/icons/magnify.svg";
 import "../../assets/styles/components/header.scss";
+import { Link } from "react-router-dom";
+const baseUrl = process.env.REACT_APP_BASE_URL;
 
 function Header(props) {
   const toggleSearch = () => {
@@ -13,7 +15,9 @@ function Header(props) {
 
   return (
     <header>
-      <div className="logo">Skylan arts</div>
+      <div className="logo">
+        <Link to={baseUrl}>Skylan arts</Link>
+      </div>
       <div className="search_container">
         <button className="search_button" onClick={toggleSearch}>
           <img src={searchIcon} />
