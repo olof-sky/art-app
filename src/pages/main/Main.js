@@ -2,6 +2,7 @@ import { useEventListener } from "../../hooks/hooks.js";
 import { Loading } from "../../components/loading/Loading.js";
 import Artwork from "../../components/artwork/Artwork";
 import "../../assets/styles/components/main.scss";
+import img from "../../assets/img/noImgAvailable.jpg";
 
 function Main(props) {
   const handler = () => {
@@ -19,9 +20,12 @@ function Main(props) {
     return (
       <main className="artworks_container">
         {Object.keys(artworks).map((key) => {
+          const imgSrc = artworks[key].webImage
+            ? artworks[key].webImage.url
+            : img;
           return (
             <Artwork
-              imgSrc={artworks[key].webImage.url || ""}
+              imgSrc={imgSrc}
               id={artworks[key].objectNumber}
               maker={artworks[key].principalOrFirstMaker}
               title={artworks[key].title}

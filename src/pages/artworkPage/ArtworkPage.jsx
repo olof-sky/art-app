@@ -5,6 +5,7 @@ import BtnRoundLink from "../../components/buttons/BtnRoundLink";
 import Artwork from "../../components/artwork/Artwork";
 import ArtworkDescription from "../../components/artworkDescription/ArtworkDescription";
 import ArtworkWikiLinks from "../../components/artworkWikiLinks/ArtworkWikiLinks";
+import img from "../../assets/img/noImgAvailable.jpg";
 import "../../assets/styles/components/artworkPage.scss";
 import { Loading } from "../../components/loading/Loading";
 import { setQuery } from "../../helpers/helpers";
@@ -100,10 +101,11 @@ function ArtworkPage() {
       url: physicalMediumUrl,
     };
     let labelColor = artwork.colors[0] ? artwork.colors[0].hex : "#000000";
+    const imgSrc = artwork.webImage ? artwork.webImage.url : img;
     return (
       <main className="artwork_container">
         <Artwork
-          imgSrc={artwork.webImage.url}
+          imgSrc={imgSrc}
           maker={artwork.principalOrFirstMaker}
           title={artwork.title}
           labelColor={labelColor}
