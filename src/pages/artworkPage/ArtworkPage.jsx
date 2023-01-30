@@ -7,9 +7,10 @@ import ArtworkDescription from "../../components/artworkDescription/ArtworkDescr
 import ArtworkWikiLinks from "../../components/artworkWikiLinks/ArtworkWikiLinks";
 import "../../assets/styles/components/artworkPage.scss";
 import { Loading } from "../../components/loading/Loading";
+import { setQuery } from "../../helpers/helpers";
 
 const key = process.env.REACT_APP_MASTER_KEY;
-const url = process.env.REACT_APP_RIJKS_URL;
+let url = process.env.REACT_APP_RIJKS_URL;
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
 function ArtworkPage() {
@@ -34,9 +35,7 @@ function ArtworkPage() {
     };
 
     wikiUrl = wikiUrl + "?origin=*";
-    Object.keys(params).forEach(function (key) {
-      wikiUrl += "&" + key + "=" + params[key];
-    });
+    wikiUrl = setQuery(wikiUrl, params);
     try {
       fetch(wikiUrl)
         .then((response) => {
@@ -60,8 +59,14 @@ function ArtworkPage() {
 
   async function getArtworkById(id) {
     setLoading(true);
+    let params = {
+      key: key,
+    };
+    let searchUrl = url + `/en/collection/${id}?`;
+    searchUrl = setQuery(searchUrl, params);
+
     try {
-      const response = await fetch(`${url}/en/collection/${id}?key=${key}`);
+      const response = await fetch(searchUrl);
       if (!response.ok) {
         throw new Error();
       } else {
@@ -94,13 +99,14 @@ function ArtworkPage() {
       name: artwork.physicalMedium,
       url: physicalMediumUrl,
     };
+    let labelColor = artwork.colors[0] ? artwork.colors[0].hex : "#000000";
     return (
       <main className="artwork_container">
         <Artwork
           imgSrc={artwork.webImage.url}
           maker={artwork.principalOrFirstMaker}
           title={artwork.title}
-          labelColor={artwork.colors[0].hex}
+          labelColor={labelColor}
         />
         <div className="artwork_info_container">
           <ArtworkDescription artwork={artwork} />

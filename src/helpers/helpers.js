@@ -16,3 +16,10 @@ export function getContrastYIQ(hexcolor) {
   var yiq = (r * 299 + g * 587 + b * 114) / 1000;
   return yiq >= 128 ? "black" : "white";
 }
+
+export function setQuery(url, params) {
+  Object.keys(params).forEach(function (key) {
+    url += "&" + key + "=" + params[key];
+  });
+  return url;
+}
