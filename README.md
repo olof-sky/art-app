@@ -26,7 +26,9 @@ Live DEMO at [Github pages](https://olof-sky.github.io/art-app/)
 - [x] If search on artist doesnt have artworks, show error text.
 - [x] Removing search text completely resets search query.
 - [x] Fix text color on artwork label
-- [ ] Work on styling
+- [x] Work on styling
+- [ ] Add rijksmuseum reference
+- [ ] Add artist reference in img title
 - [ ] Add error page
 - [ ] Add login with google
 - [ ] Add favorites, artworks
