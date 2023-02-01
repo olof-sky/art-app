@@ -27,8 +27,9 @@ Live DEMO at [Github pages](https://olof-sky.github.io/art-app/)
 - [x] Removing search text completely resets search query.
 - [x] Fix text color on artwork label
 - [x] Work on styling
+- [x] Add meta tags
+- [x] Add artist reference in img title
 - [ ] Add rijksmuseum reference
-- [ ] Add artist reference in img title
 - [ ] Add error page
 - [ ] Add login with google
 - [ ] Add favorites, artworks
