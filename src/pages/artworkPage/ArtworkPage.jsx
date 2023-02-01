@@ -1,6 +1,6 @@
 import { React, useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
+import DocumentMeta from "react-document-meta";
 import BtnRoundLink from "../../components/buttons/BtnRoundLink";
 import Artwork from "../../components/artwork/Artwork";
 import ArtworkDescription from "../../components/artworkDescription/ArtworkDescription";
@@ -102,23 +102,41 @@ function ArtworkPage() {
     };
     let labelColor = artwork.colors[0] ? artwork.colors[0].hex : "#000000";
     const imgSrc = artwork.webImage ? artwork.webImage.url : img;
+
+    const meta = {
+      title: artwork.principalOrFirstMaker,
+      description:
+        "Målare: " + artwork.label.makerLine + "; Mått: " + artwork.subTitle,
+      meta: {
+        charset: "utf-8",
+        name: {
+          keywords: `art, artwork, stor tavla, konst, tavla, målning, ${artwork.principalOrFirstMaker}, ${artwork.physicalMedium}`,
+        },
+        "og:title": artwork.principalOrFirstMaker,
+        "og:image": imgSrc,
+        "og:description": artwork.label.makerLine,
+        "og:locale": "en_GB",
+      },
+    };
     return (
-      <main className="artwork_container">
-        <Artwork
-          imgSrc={imgSrc}
-          maker={artwork.principalOrFirstMaker}
-          title={artwork.title}
-          labelColor={labelColor}
-        />
-        <div className="artwork_info_container">
-          <ArtworkDescription artwork={artwork} />
-          <ArtworkWikiLinks
-            artist={artistWiki}
-            physicalMedium={physicalMediumWiki}
+      <DocumentMeta {...meta}>
+        <main className="artwork_container">
+          <Artwork
+            imgSrc={imgSrc}
+            maker={artwork.principalOrFirstMaker}
+            title={artwork.title}
+            labelColor={labelColor}
           />
-          <BtnRoundLink link={baseUrl} goBack={true} />
-        </div>
-      </main>
+          <div className="artwork_info_container">
+            <ArtworkDescription artwork={artwork} />
+            <ArtworkWikiLinks
+              artist={artistWiki}
+              physicalMedium={physicalMediumWiki}
+            />
+            <BtnRoundLink link={baseUrl} goBack={true} />
+          </div>
+        </main>
+      </DocumentMeta>
     );
   }
 }

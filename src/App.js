@@ -1,4 +1,5 @@
 import React from "react";
+import DocumentMeta from "react-document-meta";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 import { debounce } from "./helpers/helpers";
 import { getArtworksHelper } from "./api/getArtworks";
@@ -8,6 +9,16 @@ import Header from "./components/header/Header";
 import Main from "./pages/main/Main";
 
 const baseUrl = process.env.REACT_APP_BASE_URL;
+const meta = {
+  title: "Skylan arts",
+  description: "Artworks from rijksmuseum of art in Netherlands.",
+  meta: {
+    charset: "utf-8",
+    name: {
+      keywords: "art, artwork, stor tavla, konst, tavla, målning, klassisk",
+    },
+  },
+};
 
 class App extends React.Component {
   constructor(props) {
@@ -97,26 +108,28 @@ class App extends React.Component {
 
   render() {
     return (
-      <Routes>
-        <Route
-          path={baseUrl}
-          element={<Layout onSearch={this.getSearchResult} />}
-        >
+      <DocumentMeta {...meta}>
+        <Routes>
           <Route
             path={baseUrl}
-            index
-            element={
-              <Main
-                loading={this.state.loading}
-                onScroll={debounce(this.onScroll, 300)}
-                artworks={this.state.artworks}
-              />
-            }
-          ></Route>
-          <Route path={baseUrl + "/artwork/:id"} element={<ArtworkPage />} />
-          <Route path="*" element={<NoMatch />} />
-        </Route>
-      </Routes>
+            element={<Layout onSearch={this.getSearchResult} />}
+          >
+            <Route
+              path={baseUrl}
+              index
+              element={
+                <Main
+                  loading={this.state.loading}
+                  onScroll={debounce(this.onScroll, 300)}
+                  artworks={this.state.artworks}
+                />
+              }
+            ></Route>
+            <Route path={baseUrl + "/artwork/:id"} element={<ArtworkPage />} />
+            <Route path="*" element={<NoMatch />} />
+          </Route>
+        </Routes>
+      </DocumentMeta>
     );
   }
 }
