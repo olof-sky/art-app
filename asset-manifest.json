@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/art-app/static/css/main.71b5469c.css",
+    "main.js": "/art-app/static/js/main.8d8a67c8.js",
+    "static/media/annabel 1.ttf": "/art-app/static/media/annabel 1.12824fa7089f011d288f.ttf",
+    "index.html": "/art-app/index.html",
+    "static/media/magnify.svg": "/art-app/static/media/magnify.becbafc1d561cd05498fdf599ee053c3.svg",
+    "main.71b5469c.css.map": "/art-app/static/css/main.71b5469c.css.map",
+    "main.8d8a67c8.js.map": "/art-app/static/js/main.8d8a67c8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.71b5469c.css",
+    "static/js/main.8d8a67c8.js"
+  ]
+}
